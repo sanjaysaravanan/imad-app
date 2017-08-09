@@ -7,6 +7,24 @@ app.use(morgan('combined'));
 
 var contentArticleOne = {
     title : 'Article One | Sanjay Saravanan',
+    heading : 'Article One | Sanjay Saravanan',
+    date : 'Aug 8,2017',
+    content : `<p> This is the content for my first Article.This is the content for my first Article.This is the content for my first Article.
+                    This is the content for my first Article.This is the content for my first Article.This is the content for my first Article.
+                    This is the content for my first Article.This is the content for my first Article.This is the content for my first Article.
+                    This is the content for my first Article.This is the content for my first Article.This is the content for my first Article.
+                </p>
+                <p>
+                    Another para for the article one.Another para for the article one.Another para for the article one.Another para for the article one.Another para for the article one.Another para for the article one.Another para for the article one.Another para for the article one.
+                </p>
+                <p>
+                    Another para for the article one.Another para for the article one.Another para for the article one.Another para for the article one.Another para for the article one.Another para for the article one.Another para for the article one.Another para for the article one.
+                </p>`
+    
+};
+
+var contentArticleTwo = {
+    title : 'Article Two | Sanjay Saravanan',
     heading : 'Article Two | Sanjay Saravanan',
     date : 'Aug 8,2017',
     content : `<p> This is the content for my first Article.This is the content for my first Article.This is the content for my first Article.
@@ -22,6 +40,25 @@ var contentArticleOne = {
                 </p>`
     
 };
+
+var contentArticleThree = {
+    title : 'Article Three | Sanjay Saravanan',
+    heading : 'Article Three | Sanjay Saravanan',
+    date : 'Aug 8,2017',
+    content : `<p> This is the content for my first Article.This is the content for my first Article.This is the content for my first Article.
+                    This is the content for my first Article.This is the content for my first Article.This is the content for my first Article.
+                    This is the content for my first Article.This is the content for my first Article.This is the content for my first Article.
+                    This is the content for my first Article.This is the content for my first Article.This is the content for my first Article.
+                </p>
+                <p>
+                    Another para for the article one.Another para for the article one.Another para for the article one.Another para for the article one.Another para for the article one.Another para for the article one.Another para for the article one.Another para for the article one.
+                </p>
+                <p>
+                    Another para for the article one.Another para for the article one.Another para for the article one.Another para for the article one.Another para for the article one.Another para for the article one.Another para for the article one.Another para for the article one.
+                </p>`
+    
+};
+
 function createTemplate(data){
     var title = data.title;
     var heading = data.heading;
@@ -66,11 +103,11 @@ app.get('/article-one',function(req,res){
 });
 
 app.get('/article-two',function(req,res){
-    res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
+    res.send(createTemplate(contentArticleTwo));
 });
 
 app.get('/article-three',function(req,res){
-    res.sendFile(path.join(__dirname, 'ui', 'article-three.html'));
+     res.send(createTemplate(contentArticleThree));
 });
 
 app.get('/ui/style.css', function (req, res) {
