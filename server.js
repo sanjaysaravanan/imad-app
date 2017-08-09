@@ -5,9 +5,10 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-var contentArticleOne = {
+var articles = {
+    'article-one' : {
     title : 'Article One | Sanjay Saravanan',
-    heading : 'Article One | Sanjay Saravanan',
+    heading : 'Article One',
     date : 'Aug 8,2017',
     content : `<p> This is the content for my first Article.This is the content for my first Article.This is the content for my first Article.
                     This is the content for my first Article.This is the content for my first Article.This is the content for my first Article.
@@ -21,12 +22,11 @@ var contentArticleOne = {
                     Another para for the article one.Another para for the article one.Another para for the article one.Another para for the article one.Another para for the article one.Another para for the article one.Another para for the article one.Another para for the article one.
                 </p>`
     
-};
-
-var contentArticleTwo = {
+},
+    'article-two' : {
     title : 'Article Two | Sanjay Saravanan',
-    heading : 'Article Two | Sanjay Saravanan',
-    date : 'Aug 8,2017',
+    heading : 'Article Two',
+    date : 'Aug 9,2017',
     content : `<p> This is the content for my first Article.This is the content for my first Article.This is the content for my first Article.
                     This is the content for my first Article.This is the content for my first Article.This is the content for my first Article.
                     This is the content for my first Article.This is the content for my first Article.This is the content for my first Article.
@@ -39,25 +39,26 @@ var contentArticleTwo = {
                     Another para for the article one.Another para for the article one.Another para for the article one.Another para for the article one.Another para for the article one.Another para for the article one.Another para for the article one.Another para for the article one.
                 </p>`
     
+},
+    'article-three' : {
+    title : 'Article Three | Sanjay Saravanan',
+    heading : 'Article Three',
+    date : 'Aug 10,2017',
+    content : `<p> This is the content for my first Article.This is the content for my first Article.This is the content for my first Article.
+                    This is the content for my first Article.This is the content for my first Article.This is the content for my first Article.
+                    This is the content for my first Article.This is the content for my first Article.This is the content for my first Article.
+                    This is the content for my first Article.This is the content for my first Article.This is the content for my first Article.
+                </p>
+                <p>
+                    Another para for the article one.Another para for the article one.Another para for the article one.Another para for the article one.Another para for the article one.Another para for the article one.Another para for the article one.Another para for the article one.
+                </p>
+                <p>
+                    Another para for the article one.Another para for the article one.Another para for the article one.Another para for the article one.Another para for the article one.Another para for the article one.Another para for the article one.Another para for the article one.
+                </p>`
+    
+}
 };
 
-var contentArticleThree = {
-    title : 'Article Three | Sanjay Saravanan',
-    heading : 'Article Three | Sanjay Saravanan',
-    date : 'Aug 8,2017',
-    content : `<p> This is the content for my first Article.This is the content for my first Article.This is the content for my first Article.
-                    This is the content for my first Article.This is the content for my first Article.This is the content for my first Article.
-                    This is the content for my first Article.This is the content for my first Article.This is the content for my first Article.
-                    This is the content for my first Article.This is the content for my first Article.This is the content for my first Article.
-                </p>
-                <p>
-                    Another para for the article one.Another para for the article one.Another para for the article one.Another para for the article one.Another para for the article one.Another para for the article one.Another para for the article one.Another para for the article one.
-                </p>
-                <p>
-                    Another para for the article one.Another para for the article one.Another para for the article one.Another para for the article one.Another para for the article one.Another para for the article one.Another para for the article one.Another para for the article one.
-                </p>`
-    
-};
 
 function createTemplate(data){
     var title = data.title;
@@ -98,8 +99,11 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/article-one',function(req,res){
-    res.send(createTemplate(contentArticleOne));
+app.get('/:articleName',function(req,res){
+    //this will make articleName == articleOne
+    //this will make articlesName == {} contents of article one
+    var articleName = req.params.articleName;
+    res.send(createTemplate(articles[articleName]));
 });
 
 app.get('/article-two',function(req,res){
