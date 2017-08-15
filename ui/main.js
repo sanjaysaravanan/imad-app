@@ -21,6 +21,6 @@ button.onclick = function(){
       // Not done yet  
     };
     //make the request 
-    request.open('GET','http://http://sanjaysaravanan38.imad.hasura-app.io/counter', true);
+    request.open('GET','http://sanjaysaravanan38.imad.hasura-app.io/counter', true);
     request.send(null);
 };    
