@@ -14,61 +14,6 @@ var config = {
 var app = express();
 app.use(morgan('combined'));
 
-var articles = {
-    'article-one' : {
-    title : 'Article One | Sanjay Saravanan',
-    heading : 'Article One',
-    date : 'Aug 8,2017',
-    content : `<p> This is the content for my first Article.This is the content for my first Article.This is the content for my first Article.
-                    This is the content for my first Article.This is the content for my first Article.This is the content for my first Article.
-                    This is the content for my first Article.This is the content for my first Article.This is the content for my first Article.
-                    This is the content for my first Article.This is the content for my first Article.This is the content for my first Article.
-                </p>
-                <p>
-                    Another para for the article one.Another para for the article one.Another para for the article one.Another para for the article one.Another para for the article one.Another para for the article one.Another para for the article one.Another para for the article one.
-                </p>
-                <p>
-                    Another para for the article one.Another para for the article one.Another para for the article one.Another para for the article one.Another para for the article one.Another para for the article one.Another para for the article one.Another para for the article one.
-                </p>`
-    
-},
-    'article-two' : {
-    title : 'Article Two | Sanjay Saravanan',
-    heading : 'Article Two',
-    date : 'Aug 9,2017',
-    content : `<p> This is the content for my first Article.This is the content for my first Article.This is the content for my first Article.
-                    This is the content for my first Article.This is the content for my first Article.This is the content for my first Article.
-                    This is the content for my first Article.This is the content for my first Article.This is the content for my first Article.
-                    This is the content for my first Article.This is the content for my first Article.This is the content for my first Article.
-                </p>
-                <p>
-                    Another para for the article one.Another para for the article one.Another para for the article one.Another para for the article one.Another para for the article one.Another para for the article one.Another para for the article one.Another para for the article one.
-                </p>
-                <p>
-                    Another para for the article one.Another para for the article one.Another para for the article one.Another para for the article one.Another para for the article one.Another para for the article one.Another para for the article one.Another para for the article one.
-                </p>`
-    
-},
-    'article-three' : {
-    title : 'Article Three | Sanjay Saravanan',
-    heading : 'Article Three',
-    date : 'Aug 10,2017',
-    content : `<p> This is the content for my first Article.This is the content for my first Article.This is the content for my first Article.
-                    This is the content for my first Article.This is the content for my first Article.This is the content for my first Article.
-                    This is the content for my first Article.This is the content for my first Article.This is the content for my first Article.
-                    This is the content for my first Article.This is the content for my first Article.This is the content for my first Article.
-                </p>
-                <p>
-                    Another para for the article one.Another para for the article one.Another para for the article one.Another para for the article one.Another para for the article one.Another para for the article one.Another para for the article one.Another para for the article one.
-                </p>
-                <p>
-                    Another para for the article one.Another para for the article one.Another para for the article one.Another para for the article one.Another para for the article one.Another para for the article one.Another para for the article one.Another para for the article one.
-                </p>`
-    
-}
-};
-
-
 function createTemplate(data){
     var title = data.title;
     var heading = data.heading;
