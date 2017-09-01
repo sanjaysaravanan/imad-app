@@ -133,6 +133,11 @@ app.get('/check-login', function(req,res){
    }
 });
 
+app.get('/logout', function(req,res){
+    delete req.session.outh;
+    res.send('Logged Out');
+});
+
 var pool = new Pool(config);
 app.get('/test-db', function(req,res){
     //make a select request 
@@ -146,7 +151,9 @@ app.get('/test-db', function(req,res){
     });
 });
 
-var counter = 0
+
+
+var counter = 0;
 app.get('/counter',function(req,res){
     counter = counter +1;
     res.send(counter.toString());
