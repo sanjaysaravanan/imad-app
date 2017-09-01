@@ -3,7 +3,7 @@ var morgan = require('morgan');
 var path = require('path');
 var Pool = require('pg').Pool;
 var crypto = require('crypto');
-var bodyParser = required('body-parser');
+var bodyParser = require('body-parser');
 
 var config = {
     user: 'sanjaysaravanan38',
@@ -73,7 +73,7 @@ app.get('/hash/:input', function(req,res){
    res.send(hashedString);
 });
 
-app.get('/create-user', function(req,res){
+app.post('/create-user', function(req,res){
    //username, password 
    //JSON
    var username = req.body.username;
